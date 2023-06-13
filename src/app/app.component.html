@@ -1,1 +1,21 @@
 <h1 class="text-xl text-bold mb-4">True to Form: A Guide to Reactive Forms</h1>
+
+<form [formGroup]="form" class="flex flex-col gap-4 p-4 mb-8">
+  <ng-container formArrayName="todos">
+    <app-todo
+      *ngFor="let todo of todosArrayFromGroups; let index = index"
+      [form]="todo"
+      [index]="index"
+      (remove)="removeFormGroup($event)"
+    >
+    </app-todo>
+  </ng-container>
+</form>
+
+<button class="bg-orange-500 text-white p-2" (click)="addTodoFormGroup()">
+  Add TODO
+</button>
+
+<pre><code>
+  {{formUpdates$ | async | json}}
+</code></pre>

@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+  <input type="text" formControlName="title" placeholder="Title" />
+  <br />
+  <!--[attr.id] is needed for unique ID's otherwise the complete wont bind to the right item -->
+  <label for="'complete-' + index">
+    <input
+      type="checkbox"
+      [attr.id]="'complete-' + index"
+      formControlName="complete"
+    />
+    Complete
+  </label>
+  <br />
+  <button class="big-red-300 text-red-600 rounded p-1">Remove</button>
+</form>
